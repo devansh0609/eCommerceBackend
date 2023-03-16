@@ -18,11 +18,11 @@ exports.getRegData = (req,res) =>{
         res.status(403).send({err: "User already exists"});
       else{
         bcrypt.genSalt(10 ,  (err, salt)=>{
-            if(err) { res.status(203).send({err: "Something went wrong in salt generation"}) }
+            if(err) { res.status(403).send({err: "Something went wrong in salt generation"}) }
             else
             {
               bcrypt.hash(req.body.password ,  salt ,  (err ,  hash)=>{
-                if(err) { res.status(203).send({err: "Something went wrong "}) }
+                if(err) { res.status(403).send({err: "Something went wrong "}) }
                 else
                 {
                   userModel.insertMany({name : req.body.name ,  email : req.body.email  ,  password : hash  }).then((result)=>{
