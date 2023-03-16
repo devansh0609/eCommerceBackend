@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-    origin:'http://localhost:3000',
+    origin:'https://resonant-nougat-e32590.netlify.app',
     credentials:true,
     optionSuccessStatur:200
 }
